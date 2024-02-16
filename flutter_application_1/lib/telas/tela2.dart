@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_1/telas/tela4.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'NOSSOS PRODUTOS',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(186, 16, 36, 89)),
         useMaterial3: true,
@@ -40,10 +40,9 @@ class MyHomePage extends StatelessWidget {
             shadowColor: Colors.black,
           ),
           onPressed: () {
-            // Navigate to the second screen (Tela2) when the button is pressed
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) =>  Tela2()),
+              MaterialPageRoute(builder: (context) => Tela2()),
             );
           },
           child: const Text(
@@ -57,9 +56,40 @@ class MyHomePage extends StatelessWidget {
 }
 
 class Tela2 extends StatelessWidget {
-   Tela2({Key? key}) : super(key: key);
+  Tela2({Key? key}) : super(key: key);
 
-  final List<String> items = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+  final List<Map<String, dynamic>> items = [
+    {
+      'name': 'Mouse',
+      'image': 'assets/item1.jpg',
+      'icon': Icons.mouse,
+      'specifications': {'Tipo': 'Óptico', 'Conectividade': 'Sem fio'}
+    },
+    {
+      'name': 'Fone',
+      'image': 'assets/item2.jpg',
+      'icon': Icons.headset,
+      'specifications': {'Tipo': 'Over-ear', 'Conectividade': 'Com fio'}
+    },
+    {
+      'name': 'Teclado',
+      'image': 'assets/item3.jpg',
+      'icon': Icons.keyboard,
+      'specifications': {'Tipo': 'Mecânico', 'Conectividade': 'Sem fio'}
+    },
+    {
+      'name': 'Monitor',
+      'image': 'assets/item4.jpg',
+      'icon': Icons.monitor,
+      'specifications': {'Tamanho': '24 polegadas', 'Resolução': '1080p'}
+    },
+    {
+      'name': 'Processador',
+      'image': 'assets/item5.jpg',
+      'icon': Icons.memory,
+      'specifications': {'Núcleos': 'Quad-core', 'Velocidade': '3.2 GHz'}
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -71,23 +101,52 @@ class Tela2 extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (context, index) {
           return ListTile(
-            title: Text(items[index]),
+            title: Text(items[index]['name']),
+            leading: CircleAvatar(
+              backgroundImage: AssetImage(items[index]['image']),
+              child: Icon(items[index]['icon'], color: Colors.white),
+            ),
             onTap: () {
-              // Show AlertDialog with the selected item content
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: const Text('Selected Item'),
-                    content: Text(items[index]),
-                    actions: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('OK'),
+                  return Center(
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      height: MediaQuery.of(context).size.height * 0.5,
+                      child: AlertDialog(
+                        title: Text('Especificações de ${items[index]['name']}'),
+                        content: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            for (var entry in items[index]['specifications'].entries)
+                              Text('${entry.key}: ${entry.value}'),
+                          ],
+                        ),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Sair'),
+                          ),
+                          ElevatedButton(
+                          onPressed: () {
+                            // ir p tela 4 
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Tela4()),
+                            );
+                          },
+                            child: const Text('Comprar'),
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.green,
+                              onPrimary: Colors.white, // Cor do texto do botão
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   );
                 },
               );

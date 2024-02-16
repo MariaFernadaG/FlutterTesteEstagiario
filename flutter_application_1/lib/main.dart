@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'telas/tela2.dart'; // Importa o arquivo tela2.dart
-import 'telas/tela4.dart'; // Importa o arquivo tela4.dart
+import 'telas/tela2.dart';
+import 'telas/tela3.dart';
+import 'telas/tela4.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,23 +45,29 @@ class MyHomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
+       body: Center(
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Colors.blue,
             elevation: 20,
             shadowColor: Colors.black,
           ),
-          onPressed: () {
+         onPressed: () {
             // Mostra um Snackbar quando o botão é pressionado
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: const Text('Olá, Next Tecnologia!'),
               ),
             );
+
+            // Agora, navega para Tela2
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Tela2()),
+            );
           },
           child: const Text(
-            'Pressione-me',
+            'Conheça nossos produtos',
             style: TextStyle(color: Colors.white),
           ),
         ),
@@ -82,7 +90,17 @@ class MyHomePage extends StatelessWidget {
                   // Navega para Tela2 quando Tela2 é selecionada
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>  Tela2()),
+                    MaterialPageRoute(builder: (context) => Tela2()),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Tela3'),
+                onTap: () {
+                  // Navega para Tela3 quando Tela3 é selecionada
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CEPWidget()),
                   );
                 },
               ),

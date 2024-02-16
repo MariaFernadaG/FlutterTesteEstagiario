@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_application_1/telas/tela3.dart';
 class Tela4 extends StatefulWidget {
   const Tela4({Key? key}) : super(key: key);
 
@@ -77,13 +77,26 @@ class _Tela4State extends State<Tela4> {
       print('Nome: ${_nameController.text}');
       print('E-mail: ${_emailController.text}');
       print('Senha: ${_passwordController.text}');
-
-      // Mostrar um SnackBar com a mensagem
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: const Text('Dados enviados com sucesso!'),
-        ),
-      );
-    }
+   
+  // Mostrar AlertDialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Cadastro realizado com sucesso!'),
+          content: Text('Bem-vindo(a), ${_nameController.text}!'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Fecha o AlertDialog
+               
+                },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
   }
 }
