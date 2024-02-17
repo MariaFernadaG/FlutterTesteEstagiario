@@ -16,7 +16,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(955, 81, 56, 96)),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.purple, // Cor de fundo da AppBar 
+          titleTextStyle: TextStyle(color: Colors.white), // Cor do texto 
+        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Teste Flutter'),
@@ -33,49 +37,49 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(title),
         actions: [
           IconButton(
             icon: Icon(Icons.menu),
             onPressed: () {
-              // Abre o menu
+              //abre o menu
               _openMenu(context);
             },
           ),
         ],
       ),
-       body: Center(
+      body: Center(
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            primary: Colors.blue,
-            elevation: 20,
+            primary: Colors.purple, //cor de fundo do botão
+            elevation: 180,
             shadowColor: Colors.black,
           ),
-         onPressed: () {
-            // Mostra um Snackbar quando o botão é pressionado
+          onPressed: () {
+            //mostra um snackbar
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: const Text('Olá, Next Tecnologia!'),
               ),
             );
 
-            // Agora, navega para Tela2
+            //Tela2
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Tela2()),
             );
           },
-          child: const Text(
-            'Conheça nossos produtos',
-            style: TextStyle(color: Colors.white),
+          child: Icon(
+            Icons.store, // Ícone de loja
+            size: 80.0, // Tamanho do ícone
+            color: Colors.white, // Cor do ícone
           ),
         ),
       ),
     );
   }
 
-  // Função para abrir o menu
+  //abrir o menu
   void _openMenu(BuildContext context) {
     showModalBottomSheet(
       context: context,
@@ -85,9 +89,9 @@ class MyHomePage extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ListTile(
-                title: const Text('Tela2'),
+                title: const Text('Nossos Produtos'),
                 onTap: () {
-                  // Navega para Tela2 quando Tela2 é selecionada
+                  //tela2 
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Tela2()),
@@ -95,9 +99,9 @@ class MyHomePage extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: const Text('Tela3'),
+                title: const Text('Consulte seu CEP'),
                 onTap: () {
-                  // Navega para Tela3 quando Tela3 é selecionada
+                  //Tela3
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => CEPWidget()),
@@ -105,12 +109,12 @@ class MyHomePage extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: const Text('Tela4'),
+                title: const Text('Cadastre-se'),
                 onTap: () {
-                  // Navega para Tela4 quando Tela4 é selecionada
+                  //Tela4
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Tela4()), // Corrigir aqui
+                    MaterialPageRoute(builder: (context) => const Tela4()), 
                   );
                 },
               ),
