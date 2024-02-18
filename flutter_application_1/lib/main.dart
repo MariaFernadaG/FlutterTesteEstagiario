@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'telas/tela2.dart';
 import 'telas/tela3.dart';
 import 'telas/tela4.dart';
+import 'telas/tela5.dart';
 
 void main() {
   runApp(const MyApp());
@@ -95,6 +96,15 @@ class MyHomePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Tela2()),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text('Produtos'),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ListaProdutosScreen()),
                   );
                 },
               ),
