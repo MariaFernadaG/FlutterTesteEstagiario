@@ -4,34 +4,29 @@ import 'package:flutter_application_1/telas/tela4.dart';
 class Tela2 extends StatelessWidget {
   Tela2({Key? key}) : super(key: key);
 
-    final List<Map<String, dynamic>> items = [
+  final List<Map<String, dynamic>> items = [
     {
       'name': 'Mouse',
-      'image': 'assets/item1.jpg',
       'icon': Icons.mouse,
       'specifications': {'Tipo': 'Óptico', 'Conectividade': 'Sem fio'}
     },
     {
       'name': 'Fone',
-      'image': 'assets/item2.jpg',
       'icon': Icons.headset,
       'specifications': {'Tipo': 'Over-ear', 'Conectividade': 'Com fio'}
     },
     {
       'name': 'Teclado',
-      'image': 'assets/item3.jpg',
       'icon': Icons.keyboard,
       'specifications': {'Tipo': 'Mecânico', 'Conectividade': 'Sem fio'}
     },
     {
       'name': 'Monitor',
-      'image': 'assets/item4.jpg',
       'icon': Icons.monitor,
       'specifications': {'Tamanho': '24 polegadas', 'Resolução': '1080p'}
     },
     {
       'name': 'Processador',
-      'image': 'assets/item5.jpg',
       'icon': Icons.memory,
       'specifications': {'Núcleos': 'Quad-core', 'Velocidade': '3.2 GHz'}
     },
@@ -54,8 +49,8 @@ class Tela2 extends StatelessWidget {
               child: ListTile(
                 title: Text(items[index]['name']),
                 leading: CircleAvatar(
-                  backgroundImage: AssetImage(items[index]['image']),
-                  child: Icon(items[index]['icon'], color: Colors.white),
+                   backgroundColor: Colors.transparent,
+                  child: Icon(items[index]['icon'], color: Colors.purple),
                 ),
                 onTap: () {
                   showDialog(
@@ -63,8 +58,8 @@ class Tela2 extends StatelessWidget {
                     builder: (BuildContext context) {
                       return Center(
                         child: Container(
-                          width: MediaQuery.of(context).size.width * 0.9, // largura showd
-                          height: MediaQuery.of(context).size.height * 0.5, //altura
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          height: MediaQuery.of(context).size.height * 0.5,
                           child: AlertDialog(
                             title: Text('Especificações de ${items[index]['name']}'),
                             content: Column(
@@ -110,4 +105,3 @@ class Tela2 extends StatelessWidget {
     );
   }
 }
-

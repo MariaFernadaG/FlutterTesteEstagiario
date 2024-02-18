@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          backgroundColor: Colors.purple, // Cor de fundo da AppBar 
-          titleTextStyle: TextStyle(color: Colors.white), // Cor do texto 
+          backgroundColor: Colors.purple, // Cor AppBar 
+          titleTextStyle: TextStyle(color: Colors.white), // cor texto 
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
         useMaterial3: true,
@@ -71,9 +71,9 @@ class MyHomePage extends StatelessWidget {
             );
           },
           child: Icon(
-            Icons.store, // Ícone de loja
-            size: 80.0, // Tamanho do ícone
-            color: Colors.white, // Cor do ícone
+            Icons.store, // icone de loja
+            size: 80.0, //tamanho do ícone
+            color: Colors.white, 
           ),
         ),
       ),
@@ -96,15 +96,17 @@ class MyHomePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Tela2()),
+                    
                   );
                 },
               ),
               ListTile(
-                title: const Text('Produtos'),
+                title: const Text('Tecnologias'),
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ListaProdutosScreen()),
+                    
                   );
                 },
               ),
