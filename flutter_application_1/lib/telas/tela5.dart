@@ -9,7 +9,7 @@ class ListaProdutosScreen extends StatefulWidget {
 
 class _ListaProdutosScreenState extends State<ListaProdutosScreen> {
   List<Map<String, dynamic>> products = [];
-  int selectedIndex = -1; // Track the index of the selected item
+  int selectedIndex = -1;
 
   @override
   void initState() {

@@ -13,22 +13,22 @@ class Tela2 extends StatelessWidget {
     {
       'name': 'Fone',
       'icon': Icons.headset,
-      'specifications': {'Tipo': 'Over-ear', 'Conectividade': 'Com fio'}
+      'specifications': {'Tipo': 'Over-ear', 'Conectividade': 'Com fio', 'Valor': '75,00'}
     },
     {
       'name': 'Teclado',
       'icon': Icons.keyboard,
-      'specifications': {'Tipo': 'Mecânico', 'Conectividade': 'Sem fio'}
+      'specifications': {'Tipo': 'Mecânico', 'Conectividade': 'Sem fio', 'Valor': '160,00'}
     },
     {
       'name': 'Monitor',
       'icon': Icons.monitor,
-      'specifications': {'Tamanho': '24 polegadas', 'Resolução': '1080p'}
+      'specifications': {'Tamanho': '24 polegadas', 'Resolução': '1080p', 'Valor': '950,00'}
     },
     {
       'name': 'Processador',
       'icon': Icons.memory,
-      'specifications': {'Núcleos': 'Quad-core', 'Velocidade': '3.2 GHz'}
+      'specifications': {'Núcleos': 'Quad-core', 'Velocidade': '3.2 GHz',  'Valor': '450,00'}
     },
   ];
 

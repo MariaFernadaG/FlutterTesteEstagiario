@@ -17,17 +17,16 @@ class Sucess extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              CupertinoIcons.check_mark_circled_solid, // Ícone de check verde
-              size: 100.0, // Tamanho do ícone
-              color: Colors.green, // Cor do ícone
+              CupertinoIcons.check_mark_circled_solid, //icone
+              size: 100.0, // Tamanho do icone
+              color: Colors.green, //cor icone
             ),
-            SizedBox(height: 20.0), // Espaço entre o ícone e o texto
+            SizedBox(height: 20.0), //espaço entre o ícone e o texto
             Text(
-              'O Produto será entregue no CEP $cep em 15 dias!',
+              'O Produto será entregue no CEP $cep em 5 dias!',
               style: TextStyle(fontSize: 18),
               textAlign: TextAlign.center,
             ),
-            // Adicione outros widgets conforme necessário
           ],
         ),
       ),
